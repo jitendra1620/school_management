@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "20799717000",
+    "firebase_url": "https://schoolmanagement-7640b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "schoolmanagement-7640b",
+    "storage_bucket": "schoolmanagement-7640b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20799717000:android:28f25647ec57a87d11693d",
+        "android_client_info": {
+          "package_name": "com.tb.jogs.co"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFIa90kf1DNeCx-Rozctc0yGvumL-cUfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

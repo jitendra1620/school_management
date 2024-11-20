@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:school_management/routes/app_router.dart';
 import 'package:school_management/service/google_sheet_service.dart';
+import 'package:school_management/service/notification_services.dart';
 import 'package:school_management/theme/app_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GoogleSheetService().init();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await NotificationService().initialize();
   runApp(const MyApp());
 }
 
@@ -18,8 +25,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
-            extensions: <ThemeExtension<dynamic>>[AppTheme()],
-          ),
+        extensions: <ThemeExtension<dynamic>>[AppTheme()],
+      ),
       routerConfig: AppRouter.router,
     );
   }

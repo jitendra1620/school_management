@@ -5,7 +5,7 @@ import 'package:school_management/utils/async_storage_manager.dart';
 
 class GoogleSheetService {
   static const _credentials = r'''
-s
+
 
 ''';
 
@@ -84,6 +84,25 @@ s
     return studentDataList
         .where((element) => element.phoneToLogin == phoneToLogin)
         .firstOrNull;
+  }
+
+  updateFCMToken() async {
+    final rows = await schoolWorksheet?.values.allRows() ?? [];
+
+    // Iterate through rows and update column R for matching rows
+    for (var i = 0; i < rows.length; i++) {
+      final row = rows[i];
+      if (row.length > 1 && row[1] == 'ABC') {
+        // Column B is index 1
+        final rowIndex = i + 1; // Row indices start from 1
+        const columnRIndex = 18; // Column R is the 18th column
+
+        // Update column R for the matching row
+        await schoolWorksheet!.values
+            .insertValue('Updated Value', column: columnRIndex, row: rowIndex);
+        print('Updated row $rowIndex in column R.');
+      }
+    }
   }
 }
 
